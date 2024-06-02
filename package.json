@@ -1,8 +1,36 @@
-{"scripts": {
-  "supabase": "supabase start"
-},
-    "dependencies": {},
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "supa:start": "supabase start",
+    "supa:stop": "supabase stop"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fontsource/noto-sans-jp": "^5.0.19",
+    "@fontsource/roboto": "^5.0.13",
+    "@mui/icons-material": "^5.15.19",
+    "@mui/material": "^5.15.19",
+    "clsx": "^2.1.1",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
   "devDependencies": {
-    "supabase": "^1.172.2"
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "prettier": "^3.3.0",
+    "supabase": "^1.172.2",
+    "typescript": "^5"
   }
 }
