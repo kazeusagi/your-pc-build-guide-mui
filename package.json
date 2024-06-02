@@ -1,5 +1,7 @@
-{
-  "dependencies": {},
+{"scripts": {
+  "supabase": "supabase start"
+},
+    "dependencies": {},
   "devDependencies": {
     "supabase": "^1.172.2"
   }

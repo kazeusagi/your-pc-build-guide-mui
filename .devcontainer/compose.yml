@@ -10,3 +10,5 @@ services:
       - ../:/home/user/app
     environment:
       - WATCHPACK_POLLING=true
+    ports:
+      - 3100:3100
