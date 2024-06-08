@@ -1,18 +1,18 @@
 import { ListItem } from '@mui/material';
 
-import { SidebarListItemType } from '@/types/Sidebar';
-
-import { SidebarButton } from '../SidebarButton';
+import { ButtonWithIcon } from '@/components/Elements/Button';
+import { Page } from '@/types/Sidebar';
 
 type Props = {
-  item: SidebarListItemType;
+  item: Page;
+  isActive: boolean;
   onClick: () => void;
 };
 
-export function ButtonListItem({ item, onClick }: Props) {
+export function ButtonListItem({ item, isActive, onClick }: Props) {
   return (
     <ListItem>
-      <SidebarButton {...item} onClick={onClick} />
+      <ButtonWithIcon {...item} isActive={isActive} onClick={onClick} />
     </ListItem>
   );
 }

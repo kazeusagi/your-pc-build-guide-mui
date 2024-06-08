@@ -5,6 +5,9 @@ import { useAtomValue, useSetAtom } from 'jotai';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Drawer as MuiDrawer, Toolbar, IconButton, Divider, styled } from '@mui/material';
+import { BsGpuCard } from 'react-icons/bs';
+import { FaMemory } from 'react-icons/fa6';
+import { FiCpu } from 'react-icons/fi';
 
 import { isOpenSidebarAtom, sidebarListItemsAtom, toggleSidebarAtom } from '@/util/atom';
 
@@ -22,10 +25,9 @@ export function Sidebar({}: Props) {
   useEffect(() => {
     setSidebarListItems([
       { icon: <DashboardIcon />, text: 'Home', href: '/' },
-      { icon: <DashboardIcon />, text: 'Introduction', href: '/introduction' },
-      { icon: <DashboardIcon />, text: 'CPU', href: '/parts/cpu' },
-      { icon: <DashboardIcon />, text: 'GPU', href: '/parts/gpu' },
-      { icon: <DashboardIcon />, text: 'Memory', href: '/parts/memory' },
+      { icon: <FiCpu />, text: 'CPU', href: '/parts/cpu' },
+      { icon: <BsGpuCard />, text: 'GPU', href: '/parts/gpu' },
+      { icon: <FaMemory />, text: 'Memory', href: '/parts/memory' },
     ]);
   });
 

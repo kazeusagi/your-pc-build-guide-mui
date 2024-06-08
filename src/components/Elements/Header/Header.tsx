@@ -8,10 +8,11 @@ import {
   Typography,
   AppBarProps as MuiAppBarProps,
   styled,
+  Box,
+  Chip,
 } from '@mui/material';
-import zIndex from '@mui/material/styles/zIndex';
 
-import { isOpenSidebarAtom, toggleSidebarAtom } from '@/util/atom';
+import { isOpenSidebarAtom, selectedPageAtom, tagsAtom, toggleSidebarAtom } from '@/util/atom';
 
 import { LoadingBar } from '../LoadingBar/LoadingBar';
 
@@ -20,6 +21,8 @@ export type Props = {};
 export function Header({}: Props) {
   const isOpenSidebar = useAtomValue(isOpenSidebarAtom);
   const toggleSidebar = useSetAtom(toggleSidebarAtom);
+  const selectedPage = useAtomValue(selectedPageAtom);
+  const tags = useAtomValue(tagsAtom);
 
   return (
     <AppBar
@@ -31,21 +34,30 @@ export function Header({}: Props) {
         boxShadow: 'inset 0px -10px 10px #1d2126',
       }}
     >
-      <Toolbar sx={{}}>
-        <IconButton
-          onClick={toggleSidebar}
-          sx={{
-            overflow: 'hidden',
-            width: '36px',
-            opacity: 100,
-            marginRight: '36px',
-            transition: 'all 0.2s ease-in-out',
-            ...(isOpenSidebar && { width: 0, marginRight: 0, opacity: 0, padding: 0 }),
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant='h6'>Dashboard</Typography>
+      <Toolbar>
+        <Box display='flex'>
+          <Box display='flex' alignItems='center'>
+            <IconButton
+              onClick={toggleSidebar}
+              sx={{
+                overflow: 'hidden',
+                width: '36px',
+                opacity: 100,
+                marginRight: '36px',
+                transition: 'all 0.2s ease-in-out',
+                ...(isOpenSidebar && { width: 0, marginRight: 0, opacity: 0, padding: 0 }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant='h6'>{selectedPage?.text}</Typography>
+          </Box>
+          <Box display='flex' alignItems='center' justifyContent='center' flexGrow={2}>
+            {tags.map((tag) => (
+              <Chip key={tag} label={tag} />
+            ))}
+          </Box>
+        </Box>
       </Toolbar>
       <LoadingBar />
     </AppBar>

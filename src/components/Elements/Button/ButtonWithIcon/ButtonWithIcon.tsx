@@ -1,14 +1,28 @@
+import { useEffect, useState } from 'react';
+
+import { useAtomValue } from 'jotai';
+
 import { Button } from '@mui/material';
+
+import { selectedPageAtom } from '@/util/atom';
 
 export type ButtonWithIconProps = {
   icon: React.ReactNode;
   text: string;
+  isActive: boolean;
   onClick?: () => void;
 };
-export function ButtonWithIcon({ icon, text, onClick }: ButtonWithIconProps) {
+export function ButtonWithIcon({ icon, text, onClick = () => {} }: ButtonWithIconProps) {
+  const selectedPage = useAtomValue(selectedPageAtom);
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    setIsActive(selectedPage?.text === text);
+  }, [selectedPage]);
+
   return (
     <Button
-      variant='outlined'
+      variant={isActive ? 'contained' : 'outlined'}
       startIcon={icon}
       size='large'
       sx={{
@@ -20,7 +34,9 @@ export function ButtonWithIcon({ icon, text, onClick }: ButtonWithIconProps) {
         gap: '6px',
         overflow: 'hidden',
       }}
-      onClick={onClick}
+      onClick={() => {
+        if (!isActive) onClick();
+      }}
     >
       {text}
     </Button>

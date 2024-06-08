@@ -1,9 +1,10 @@
 import { atom } from 'jotai';
 
-import { SidebarListItemType } from '@/types/Sidebar';
+import { Page } from '@/types/Sidebar';
 
 // サイドバー関連
-export const sidebarListItemsAtom = atom<SidebarListItemType[]>([]);
+export const sidebarListItemsAtom = atom<Page[]>([]);
+export const selectedPageAtom = atom<Page | undefined>(undefined);
 export const isOpenSidebarAtom = atom(false);
 // サイドバーの表示を切り替えるsetter
 export const toggleSidebarAtom = atom(null, (get, set) => {

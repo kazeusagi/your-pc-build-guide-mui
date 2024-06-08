@@ -1,4 +1,4 @@
-export type SidebarListItemType = {
+export type Page = {
   icon: React.ReactNode;
   text: string;
   href: string;
