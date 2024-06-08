@@ -1,3 +1,6 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react-hooks/exhaustive-deps": "off" // useEffectの依存配列の警告を無効化
+  }
 }

@@ -6,7 +6,8 @@ import '@fontsource/roboto/700.css';
 
 import type { Metadata } from 'next';
 
-import { MuiThemeProvider } from '@/components/mui';
+import { BaseLayout } from '@/components/BaseLayout';
+import { MuiThemeProvider } from '@/components/MuiThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang='ja'>
       <body>
-        <MuiThemeProvider>{children}</MuiThemeProvider>
+        <MuiThemeProvider>
+          <BaseLayout>{children}</BaseLayout>
+        </MuiThemeProvider>
       </body>
     </html>
   );
